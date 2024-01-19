@@ -2,10 +2,33 @@
 
 ## Table Of Contnets
 * [DOCKER](#docker)
+    * What is docker?
+    * virtual machines vs containers
+    * docker architecture
+    * installing docker
+    * development workflow
+    * image
+    * docker in action
 * [OPENSSL](#openssl)
+    * what is openSSL
+    * how to check if openSSL is installed in linux?
+    * generate a CSR with openSSL
+    * generate the private key with openSSL
+    * view the private key information with openSSL
+    * decode the private key with openSSL
+    * extract the public key with openSSL
+    * create your private key and CSR at once with openSSL
+    * check the CSR info with openSSL
+    * send the CSR to the CA
+    * check a certification in openSSL
+    * another openSSL commands
 * [PASSPHRASE](#passphrase)
+    * what is a passphrase?
+    * passphrase vs password
+    * passphrase example
 
 ## DOCKER
+### What is docker?
 docker is a platform for building, running and shipping applications in a consistent manner.
 
 ### virtual machines vs containers
@@ -50,7 +73,7 @@ see the following link https://docs.docker.com/engine/install/ for more informat
 
 now let’s talk about your development workflow when using docker so to start off we take an application it doesn’t matter what kind of application it is or how it’s built we take that application and dockerize  it which means we make a small changes so that it can be run by docker, how? we just add a docker file to it. a docker file is a plain text file that includes instructions that docker uses to package up this application into an image this image contains everything our application needs to run everything.
 
-**********image**********
+### image
 
 - a cut-down OS
 - a runtime environment (eg node)
@@ -119,7 +142,7 @@ openSSL is all about its command lines, all you have to do is learn a few common
 
 first released in 1998, openSSL is available for linux, windows macOS and BSD systems. most of the linux distributions come with openSSL pre-compiled.
 
-### **how to check if openSSL is installed in linux?**
+### how to check if openSSL is installed in linux?
 
 to check if openSSL is installed on your linux system, use the commands bellow.
 
