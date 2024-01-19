@@ -27,6 +27,9 @@
     * passphrase vs password
     * passphrase example
 
+## Note
+We not giving you the solution of the project we just sharing the information and the concept of each element we descover below
+
 ## DOCKER
 ### What is docker?
 docker is a platform for building, running and shipping applications in a consistent manner.
