@@ -26,6 +26,7 @@
     * what is a passphrase?
     * passphrase vs password
     * passphrase example
+* [NGINX](#nginx)
 
 ## Note
 We not giving you the solution of the project we just sharing the information and the concept of each element we descover below
@@ -317,13 +318,9 @@ in fact to explain NGINX’s request handling technique, we would like to quote 
 
 if that seems a bit complicated to understand, don’t worry. having a basic understanding of the inner working will suffice for now.
 
-![wQszK2rvq-1.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/1704bb50-ea03-4078-8832-7b94b99a6c7b/e8389a37-6705-473f-8094-cb76bac445f4/wQszK2rvq-1.png)
-
 NGINX is a faster in static content delivery while staying relatively lighter on resources because it doesn’t embed a dynamic programming language processor. when a request for a static content comes, NGINX simply responds with the file without running any additional processes.
 
 that does’t mean that NGINX can’t handle requests that require a dynamic programming language processor. in such cases. NGINX simply delegates the tasks to separate processes such as php-fpm, node.js or python. then, once that process finishes its work, NGINX reverse proxies the response back to the client.
-
-![_nT7rcdjG.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/1704bb50-ea03-4078-8832-7b94b99a6c7b/9b1f19e5-638d-4cce-8195-0ba6b5202a2d/_nT7rcdjG.png)
 
 NGINX is also a lot easier to configure thanks to a configuration file syntax inspired from various scripting languages that results in compact, easily maintainable configuration files.
 
