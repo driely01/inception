@@ -293,3 +293,200 @@ ulike passwords, passphrases are not as complex because they use common dictiona
 passphrase use a phrase that usually means something to the one who created it. for example, someone loves ice cream they might make a phrase based on that such as “i love ice cream” as you can tell, using this as password for one of you account can be risky since it uses common dictionary words.
 
 another example of a passphrase would by using random words altogether like “soup shelter summer indeed rod 9” which also uses common dictionary words. if this were used as a password, it places the account at risk of becoming compromised using a dictionary attack.
+
+# NGINX
+
+## introduction to NGINX
+
+NGINX is a high performance web server developed to facilitate the increasing needs of the modern web. it focuses on high performance, high concurrency, and low resource usage. although it’s mostly known as a web server, NGINX at its core is a reverse proxy server.
+
+NGINX is not only web server on the market, though. one of the biggest competitors is Apache HTTP server (httpd), first released back on 1995. in spite of the fact that Apache HTTP server is more flexible, server admins often prefer NGINX for two main reasons:
+
+- it can handle a higher number of concurrent requests.
+- it has faster static content delivery with low resource usage.
+
+i won’t go further into the whole Apache vs NGINX debate. but if you wish to learn more about the differences between them detail, this excellent article https://www.digitalocean.com/community/tutorials/apache-vs-nginx-practical-considerations from ***Justin Ellingwood*** may help.
+
+in fact to explain NGINX’s request handling technique, we would like to quote two paragraphs from *Justin* article here:
+
+> Nginx came onto the scene after Apache, with more awareness of the concurrency problems that would face sites at scale. leveraging this knowledge, Nginx was designed from the ground up to use an synchronous, non-blocking, event-driven connection handling algorithm.
+> 
+
+> Nginx spawns worker processes, each of which can handle thousands of connections. the worker processes accomplish this by implementing a fast looping mechanism that continuously checks for and processes events. decoupling actual work from connections allows each worker to concern itself with a connection only when a new event has been triggered.
+> 
+
+if that seems a bit complicated to understand, don’t worry. having a basic understanding of the inner working will suffice for now.
+
+![wQszK2rvq-1.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/1704bb50-ea03-4078-8832-7b94b99a6c7b/e8389a37-6705-473f-8094-cb76bac445f4/wQszK2rvq-1.png)
+
+NGINX is a faster in static content delivery while staying relatively lighter on resources because it doesn’t embed a dynamic programming language processor. when a request for a static content comes, NGINX simply responds with the file without running any additional processes.
+
+that does’t mean that NGINX can’t handle requests that require a dynamic programming language processor. in such cases. NGINX simply delegates the tasks to separate processes such as php-fpm, node.js or python. then, once that process finishes its work, NGINX reverse proxies the response back to the client.
+
+![_nT7rcdjG.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/1704bb50-ea03-4078-8832-7b94b99a6c7b/9b1f19e5-638d-4cce-8195-0ba6b5202a2d/_nT7rcdjG.png)
+
+NGINX is also a lot easier to configure thanks to a configuration file syntax inspired from various scripting languages that results in compact, easily maintainable configuration files.
+
+## how to install NGINX
+
+installing NGINX on a linux-based system is pretty straightforward. you can either use a virtual private server running ubuntu as you playground, or you can provision a virtual machine on your local system using vagrant.
+
+for the most part, provisioning a local virtual machine will suffice see the following article https://www.freecodecamp.org/news/the-nginx-handbook/#introduction-to-nginx
+
+## introduction to NGINX’s configuration files
+
+as a web server, nginx’s job is to serve static or dynamic content to the clients. but how that content are going to be served is usually controlled by configuration files.
+
+nginx’s configuration files end with the *.conf* extension and usually live inside */etc/nginx/*  directory. let’s begin by *cd* ing into this directory and getting a list of all files:
+
+```jsx
+cd /etc/nginx
+
+ls -lh
+
+# drwxr-xr-x 2 root root 4.0K Apr 21  2020 conf.d
+# -rw-r--r-- 1 root root 1.1K Feb  4  2019 fastcgi.conf
+# -rw-r--r-- 1 root root 1007 Feb  4  2019 fastcgi_params
+# -rw-r--r-- 1 root root 2.8K Feb  4  2019 koi-utf
+# -rw-r--r-- 1 root root 2.2K Feb  4  2019 koi-win
+# -rw-r--r-- 1 root root 3.9K Feb  4  2019 mime.types
+# drwxr-xr-x 2 root root 4.0K Apr 21  2020 modules-available
+# drwxr-xr-x 2 root root 4.0K Apr 17 14:42 modules-enabled
+# -rw-r--r-- 1 root root 1.5K Feb  4  2019 nginx.conf
+# -rw-r--r-- 1 root root  180 Feb  4  2019 proxy_params
+# -rw-r--r-- 1 root root  636 Feb  4  2019 scgi_params
+# drwxr-xr-x 2 root root 4.0K Apr 17 14:42 sites-available
+# drwxr-xr-x 2 root root 4.0K Apr 17 14:42 sites-enabled
+# drwxr-xr-x 2 root root 4.0K Apr 17 14:42 snippets
+# -rw-r--r-- 1 root root  664 Feb  4  2019 uwsgi_params
+# -rw-r--r-- 1 root root 3.0K Feb  4  2019 win-utf
+```
+
+among the these files, there should be one named **nginx.conf**. this is the main configuration file for nginx. you can have a look at the content of this file using *cat* program:
+
+```jsx
+cat nginx.conf
+
+# user www-data;
+# worker_processes auto;
+# pid /run/nginx.pid;
+# include /etc/nginx/modules-enabled/*.conf;
+
+# events {
+#     worker_connections 768;
+#     # multi_accept on;
+# }
+
+# http {
+
+#     ##
+#     # Basic Settings
+#     ##
+
+#     sendfile on;
+#     tcp_nopush on;
+#     tcp_nodelay on;
+#     keepalive_timeout 65;
+#     types_hash_max_size 2048;
+#     # server_tokens off;
+
+#     # server_names_hash_bucket_size 64;
+#     # server_name_in_redirect off;
+
+#     include /etc/nginx/mime.types;
+#     default_type application/octet-stream;
+
+#     ##
+#     # SSL Settings
+#     ##
+
+#     ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3; # Dropping SSLv3, ref: POODLE
+#     ssl_prefer_server_ciphers on;
+
+#     ##
+#     # Logging Settings
+#     ##
+
+#     access_log /var/log/nginx/access.log;
+#     error_log /var/log/nginx/error.log;
+
+#     ##
+#     # Gzip Settings
+#     ##
+
+#     gzip on;
+
+#     # gzip_vary on;
+#     # gzip_proxied any;
+#     # gzip_comp_level 6;
+#     # gzip_buffers 16 8k;
+#     # gzip_http_version 1.1;
+#     # gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+
+#     ##
+#     # Virtual Host Configs
+#     ##
+
+#     include /etc/nginx/conf.d/*.conf;
+#     include /etc/nginx/sites-enabled/*;
+# }
+
+# #mail {
+# #    # See sample authentication script at:
+# #    # http://wiki.nginx.org/ImapAuthenticateWithApachePhpScript
+# # 
+# #    # auth_http localhost/auth.php;
+# #    # pop3_capabilities "TOP" "USER";
+# #    # imap_capabilities "IMAP4rev1" "UIDPLUS";
+# # 
+# #    server {
+# #        listen     localhost:110;
+# #        protocol   pop3;
+# #        proxy      on;
+# #    }
+# # 
+# #    server {
+# #        listen     localhost:143;
+# #        protocol   imap;
+# #        proxy      on;
+# #    }
+# #}
+```
+
+whoa! that’s a lot of stuff. trying to understand this file at its current state sill be a nightmare. so let’s rename the file and create a new empty one:
+
+```jsx
+# renames the file
+sudo mv nginx.conf nginx.conf.backup
+
+# creates a new file
+sudo touch nginx.conf
+```
+
+i highly discourage you from editing the original *nginx.conf*  file unless you absolutely know what you’re doing. for learning purposes, you may rename it, butr later on, we will show you how you should go about configuring a server in a real life scenario.
+
+## how to configure a basic web server
+
+in this section, you’ll finally get your hands dirty by configuring a basic static web server from the ground up. the goal of this section is to introduce you to the syntax and fundamental concepts of nginx configuration files.
+
+## how to write your first configuration file
+
+```jsx
+events {
+
+}
+
+http {
+
+    server {
+
+        listen 80;
+        server_name nginx-handbook.test;
+
+        return 200 "Bonjour, mon ami!\n";
+    }
+
+}
+```
+
+if you have experience building REST APIs then you may guess from the return 200 “bonjour, mon ami!\n”; line that the server has been configured to respond with a status code of 200 and the message “bonjour, mon ami!”.
