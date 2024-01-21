@@ -27,6 +27,7 @@
     * passphrase vs password
     * passphrase example
 * [NGINX](#nginx)
+* [RESOURCES](#resources)
 
 ## Note
 We not giving you the solution of the project we just sharing the information and the concept of each element we descover below
@@ -487,3 +488,11 @@ http {
 ```
 
 if you have experience building REST APIs then you may guess from the return 200 “bonjour, mon ami!\n”; line that the server has been configured to respond with a status code of 200 and the message “bonjour, mon ami!”.
+
+# RESOURCES
+* [Docker](https://www.docker.com/)
+* [Docker Deep Dive (pdf)](https://m.vk.com/wall-54530371_376392?lang=en)
+* [NGINX Handbook](https://www.freecodecamp.org/news/the-nginx-handbook/#how-to-configure-ssl-and-http-2)
+* [OpenSSL](https://www.ssldragon.com/blog/what-is-openssl/)
+* [Using OpenSSL to send Asynchronous Encrypted messages (video)](https://www.youtube.com/watch?v=Q764OumalJo&ab_channel=Dr.K)
+* [STL](https://www.cloudflare.com/learning/ssl/transport-layer-security-tls/)
