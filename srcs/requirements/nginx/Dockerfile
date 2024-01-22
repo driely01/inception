@@ -22,11 +22,13 @@ RUN  openssl req -newkey rsa:4096 \
 # copy all files in the root in the root of image
 COPY . /
 
-# remove the original nginx config file
-RUN rm /etc/nginx/nginx.conf
+# remove the original nginx config file 
+#RUN rm /etc/nginx/nginx.conf
 
 # copy our nginx config file into nginx
-COPY *.conf /etc/nginx/
+COPY *.conf /etc/nginx/sites-enabled/
+COPY errors/custom_404.html /usr/share/nginx/html/
+COPY errors/custom_50x.html /usr/share/nginx/html/
 
 # expose port 80 for nginx
 EXPOSE 443
