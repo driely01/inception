@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "9000:443"
+    volumes:
+      - hello:/var/www/html
+    container_name: nginx
+    image: nginx
+    networks:
+      - firstnet
+    depends_on:
+      - php
+
+  php:
+    build:
+      context: ./wordpress
+      dockerfile: Dockerfile
+    volumes:
+      - hello:/var/www/html
+    container_name: php
+    networks:
+      - firstnet
+volumes:
+  hello:
+networks:
+  firstnet:

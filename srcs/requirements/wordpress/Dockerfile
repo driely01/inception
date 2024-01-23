@@ -5,10 +5,14 @@ FROM debian:11
 RUN apt-get update \
     && apt-get install -y php7.4-fpm
 
-# remove the php file from /var/run/
-RUN rm -rf /var/run/php
-
-# run the php-fpm server
+# start php-fpm
 RUN service php7.4-fpm start
 
-CMD ['php7.4-fpm', '-F']
+RUN mkdir -p /mysite
+
+RUN sed -i 's/\/run\/php\/php7.4-fpm.sock/9000/g' /etc/php/7.4/fpm/pool.d/www.conf
+COPY index.php /mysite
+
+EXPOSE 9000
+
+CMD ["php-fpm7.4", "-F"]
