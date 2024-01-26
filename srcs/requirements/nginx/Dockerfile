@@ -20,15 +20,15 @@ RUN  openssl req -newkey rsa:4096 \
 	-subj "/C=MA/ST=Khouribga/L=khouribga/O=1337 School/OU=del-yaag/CN=del-yaag/"
 
 # copy all files in the root in the root of image
-COPY . /
+# COPY . /var/www/html
 
 # remove the original nginx config file 
 #RUN rm /etc/nginx/nginx.conf
 
 # copy our nginx config file into nginx
 COPY *.conf /etc/nginx/sites-enabled/
-COPY errors/custom_404.html /usr/share/nginx/html/
-COPY errors/custom_50x.html /usr/share/nginx/html/
+COPY tools/errors/custom_404.html /usr/share/nginx/html/
+COPY tools/errors/custom_50x.html /usr/share/nginx/html/
 
 # expose port 80 for nginx
 EXPOSE 443

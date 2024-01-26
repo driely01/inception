@@ -1,0 +1,65 @@
+version: '3'
+
+services:
+  nginx:
+    build:
+      context: ./requirements/nginx
+      dockerfile: Dockerfile
+    ports:
+      - "443:443"
+    volumes:
+      - hello:/var/www/html
+    container_name: nginx
+    image: nginx
+    restart: unless-stopped
+    networks:
+      - firstnet
+    depends_on:
+      - wordpress
+
+  wordpress:
+    build:
+      context: ./requirements/wordpress
+      dockerfile: Dockerfile
+    ports:
+      - "3306:3306"
+    volumes:
+      - hello:/var/www/html
+    container_name: wordpress
+    image: wordpress
+    restart: unless-stopped
+    networks:
+      - firstnet
+    depends_on:
+      - mariadb
+
+  mariadb:
+    build:
+      context: ./requirements/mariadb
+      dockerfile: Dockerfile
+    ports:
+      - "9000:9000"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    container_name: mariadb
+    image: mariadb
+    restart: unless-stopped
+    networks:
+      - firstnet
+    
+volumes:
+  mariadb_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/driss/data/mysql
+      o: bind
+  hello:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/driss/data/wordpress
+      o: bind
+
+networks:
+  firstnet:
