@@ -11,7 +11,9 @@ services:
       - hello:/var/www/html
     container_name: nginx
     image: nginx
-    restart: unless-stopped
+    env_file:
+      - .env
+    # restart: unless-stopped
     networks:
       - firstnet
     depends_on:
@@ -27,7 +29,9 @@ services:
       - hello:/var/www/html
     container_name: wordpress
     image: wordpress
-    # restart: unless-stopped
+    env_file:
+      - .env
+    restart: unless-stopped
     networks:
       - firstnet
     depends_on:
@@ -43,7 +47,9 @@ services:
       - mariadb_data:/var/lib/mysql
     container_name: mariadb
     image: mariadb
-    # restart: unless-stopped
+    env_file:
+      - .env
+    restart: unless-stopped
     networks:
       - firstnet
     

@@ -1,6 +1,6 @@
 COMPOSE = srcs/docker-compose.yaml
-MYSQLVL = /home/driss/data/mysql/*
-WPVL = /home/driss/data/wordpress/*
+MYSQLVL = /home/${USER}/data/mysql/*
+WPVL = /home/${USER}/data/wordpress/*
 
 all: run
 
