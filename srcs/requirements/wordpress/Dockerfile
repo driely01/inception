@@ -20,7 +20,9 @@ RUN mkdir -p /var/www/html
 RUN sed -i 's/\/run\/php\/php7.4-fpm.sock/9000/g' /etc/php/7.4/fpm/pool.d/www.conf
 RUN wp core download --path="/var/www/html" --allow-root
 
-COPY tools/*.sh /
+COPY tools/script.sh /
+
+RUN chmod +x script.sh
 
 EXPOSE 9000
 

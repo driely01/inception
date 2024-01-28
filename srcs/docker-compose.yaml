@@ -13,7 +13,7 @@ services:
     image: nginx
     env_file:
       - .env
-    # restart: unless-stopped
+    restart: unless-stopped
     networks:
       - firstnet
     depends_on:
@@ -52,7 +52,7 @@ services:
     restart: unless-stopped
     networks:
       - firstnet
-    
+
 volumes:
   mariadb_data:
     driver: local
@@ -60,11 +60,19 @@ volumes:
       type: none
       device: /home/driss/data/mysql
       o: bind
+
   hello:
     driver: local
     driver_opts:
       type: none
       device: /home/driss/data/wordpress
+      o: bind
+
+  mysites:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/driss/data/mysites
       o: bind
 
 networks:
