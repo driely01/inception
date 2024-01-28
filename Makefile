@@ -1,13 +1,17 @@
-# PATH = srcs/docker-compose.yaml
+COMPOSE = srcs/docker-compose.yaml
+MYSQLVL = /home/driss/data/mysql/*
+WPVL = /home/driss/data/wordpress/*
+
+all: run
 
 run:
-	sudo docker-compose -f srcs/docker-compose.yaml up -d
+	sudo docker-compose -f ${COMPOSE} up -d
 
 build:
-	sudo docker-compose -f srcs/docker-compose.yaml up --build -d
+	sudo docker-compose -f ${COMPOSE} up --build -d
 
 down:
-	sudo docker-compose -f srcs/docker-compose.yaml down
+	sudo docker-compose -f ${COMPOSE} down
 
 images:
 	sudo docker images
@@ -19,11 +23,23 @@ containers:
 	sudo docker ps -a
 
 volumerm:
-	sudo rm -rf ../../data/mysql/*
-	sudo rm -rf ../../data/wordpress/*
+	sudo rm -rf ${MYSQLVL}
+	sudo rm -rf ${WPVL}
 
-remove image:
+removeimage:
 	sudo docker rmi wordpress nginx mariadb
+
+clean-volumes:
+	sudo docker volume rm $$(sudo docker volume ls -q)
+	sudo rm -rf ${MYSQLVL}
+	sudo rm -rf ${WPVL}
+
+ps:
+	sudo docker ps
 
 clean:
 	sudo docker system prune -a
+
+re: down clean all
+
+.PHONY: all run build down images running containers volumerm removeimage clean re ps

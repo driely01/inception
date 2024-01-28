@@ -1,10 +1,10 @@
-FROM debian:11
+FROM debian:stable
 
 RUN apt-get update \
-    && apt-get install mariadb-server mariadb-client -y
+    && apt-get install mariadb-server -y
 
 COPY tools/*.sh /
 
-EXPOSE 9000
+EXPOSE 3306
 
 CMD ["./script.sh"]
