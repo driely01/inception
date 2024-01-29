@@ -1,9 +1,9 @@
 COMPOSE = srcs/docker-compose.yaml
-MYSQLVL = /home/${USER}/data/mysql/*
-WPVL = /home/${USER}/data/wordpress/*
+MYSQLVL = ${HOME}/data/mysql/*
+WPVL = ${HOME}/data/wordpress/*
 
-MYSQL_VOLUME_DEVICE = /home/${USER}/data/mysql
-WP_VOLUME_DEVICE = /home/${USER}/data/wordpress
+MYSQL_VOLUME_DEVICE = ${HOME}/data/mysql
+WP_VOLUME_DEVICE = ${HOME}/data/wordpress
 
 all: run
 
@@ -51,10 +51,11 @@ log-wp:
 ps:
 	sudo docker ps
 
-clean:
-	sudo docker system prune -a
+clean: down
+	sudo docker rmi wordpress nginx mariadb website
 
-fclean: down clean-volumes clean
+fclean: down clean-volumes
+	sudo docker system prune -a
 
 
 re: fclean all

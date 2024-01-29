@@ -13,7 +13,7 @@ services:
     image: nginx
     env_file:
       - .env
-    restart: unless-stopped
+    # restart: unless-stopped
     networks:
       - firstnet
     depends_on:
@@ -31,7 +31,7 @@ services:
     image: wordpress
     env_file:
       - .env
-    restart: unless-stopped
+    # restart: unless-stopped
     networks:
       - firstnet
     depends_on:
@@ -49,7 +49,23 @@ services:
     image: mariadb
     env_file:
       - .env
-    restart: unless-stopped
+    # restart: unless-stopped
+    networks:
+      - firstnet
+
+  website:
+    build:
+      context: ./requirements/website
+      dockerfile: Dockerfile
+    ports:
+      - "5000:443"
+    volumes:
+      - hello:/var/www/html
+    container_name: website
+    image: website
+    env_file:
+      - .env
+    # restart: unless-stopped
     networks:
       - firstnet
 
@@ -66,13 +82,6 @@ volumes:
     driver_opts:
       type: none
       device: /home/driss/data/wordpress
-      o: bind
-
-  mysites:
-    driver: local
-    driver_opts:
-      type: none
-      device: /home/driss/data/mysites
       o: bind
 
 networks:
