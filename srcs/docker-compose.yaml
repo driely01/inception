@@ -13,7 +13,7 @@ services:
     image: nginx
     env_file:
       - .env
-    # restart: unless-stopped
+    restart: unless-stopped
     networks:
       - firstnet
     depends_on:
@@ -23,15 +23,15 @@ services:
     build:
       context: ./requirements/wordpress
       dockerfile: Dockerfile
-    ports:
-      - "3306:3306"
+    expose:
+      - 9000
     volumes:
       - hello:/var/www/html
     container_name: wordpress
     image: wordpress
     env_file:
       - .env
-    # restart: unless-stopped
+    restart: unless-stopped
     networks:
       - firstnet
     depends_on:
@@ -41,15 +41,15 @@ services:
     build:
       context: ./requirements/mariadb
       dockerfile: Dockerfile
-    ports:
-      - "9000:9000"
+    expose:
+      - 3306
     volumes:
       - mariadb_data:/var/lib/mysql
     container_name: mariadb
     image: mariadb
     env_file:
       - .env
-    # restart: unless-stopped
+    restart: unless-stopped
     networks:
       - firstnet
 
@@ -57,15 +57,27 @@ services:
     build:
       context: ./requirements/website
       dockerfile: Dockerfile
-    ports:
-      - "5000:443"
+    expose:
+      - 5000
     volumes:
       - hello:/var/www/html
     container_name: website
     image: website
     env_file:
       - .env
-    # restart: unless-stopped
+    restart: unless-stopped
+    networks:
+      - firstnet
+
+  adminer:
+    build:
+      context: ./requirements/adminer
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    container_name: adminer
+    image: adminer
+    restart: unless-stopped
     networks:
       - firstnet
 
