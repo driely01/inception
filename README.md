@@ -482,6 +482,7 @@ http {
 ```
 
 if you have experience building REST APIs then you may guess from the return 200 “bonjour, mon ami!\n”; line that the server has been configured to respond with a status code of 200 and the message “bonjour, mon ami!”.
+
 ---
 
 # openSSL
@@ -641,6 +642,7 @@ certificates play a crucial role in ensuring the security and trustworthiness of
 7. **code signing:** certificates are used to sign software and code, providing assurance to users that the code has been not tampered with and is from a trusted source.
 
 in summary, certificates are fundamental component of the security infrastructure on the internet, providing a mechanism for authentication, encryption, and a date integrity. they help establish trust confidence in online interactions and are essential for maintaining the privacy and security of sensitive information
+
 ---
 
 # php-fpm
@@ -662,6 +664,7 @@ let’s look at the features that make php-fpm a powerful tool for managing high
 - enhance security measures and prevents server overloading
 - offers high configurability with different uid/gid/chroot/environment and php.ini settings
 - provides several options for performance tuning
+
 ---
 
 # PID 1
@@ -681,6 +684,7 @@ For example, each process has a **PID,** a number that is its unique identifie
 ## Processes’s lifecycle
 
 The parent process has many responsibilities relating to the lifecycle. If a process terminates, some of its data is kept until the parent collects it. If the parent does not collect it, it becomes a **zombie process**. If the parent terminates, its child processes become **orphaned** and have to be adopted by another process: they are often adopted by **init**.
+
 ---
 
 ## PASSPHRASE
@@ -698,6 +702,7 @@ unlike passwords, passphrases are not as complex because they use common diction
 passphrase use a phrase that usually means something to the one who created it. for example, someone loves ice cream they might make a phrase based on that such as “i love ice cream” as you can tell, using this as password for one of you account can be risky since it uses common dictionary words.
 
 another example of a passphrase would by using random words altogether like “soup shelter summer indeed rod 9” which also uses common dictionary words. if this were used as a password, it places the account at risk of becoming compromised using a dictionary attack.
+
 ---
 
 # RESOURCES
