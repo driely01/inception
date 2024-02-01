@@ -15,7 +15,7 @@ sleep 2
 
 wp core install                         \
     --path="/var/www/html"              \
-    --url="https://del-yaag.42.fr"      \
+    --url="https://$DOMAIN_NAME"      \
     --title="WordPress Site"            \
     --admin_user="$MYSQL_USER"          \
     --admin_password="$MYSQL_PASSWORD"  \
