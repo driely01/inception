@@ -32,7 +32,7 @@
 * [PHP-FPM](#php-fpm)
     * what is php-fpm and why use it?
     * main features of php-fpm
-* [PID-1](#PID 1)
+* [PID-ONE](#PID-ONE)
     * Unix process trees
     * Processes’ lifecycle
 * [PASSPHRASE](#passphrase)
@@ -667,7 +667,7 @@ let’s look at the features that make php-fpm a powerful tool for managing high
 
 ---
 
-# PID 1
+# PID-ONE
 
 ## Unix process trees
 
