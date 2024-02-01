@@ -4,15 +4,12 @@ FROM debian:11
 # update the package list and install nginx
 RUN apt-get update \
 	&& apt-get install -y nginx \
-	&& apt-get install -y openssl \
-	&& apt-get clean \
-	&& rm -rf /var/lib/apt/lists/*
+	&& apt-get install -y openssl
 
 # create ssl directory for storing private key and certificate
 RUN mkdir /etc/nginx/ssl
 
-# create a CSR and private key using openssl
-# and store them in /etc/nginxi
+# create a CSR and private key using openssl and store them in /etc/nginxi
 RUN  openssl req -newkey rsa:4096 \
 	-nodes -days 365 -sha256 -x509 \
 	-out /etc/nginx/ssl/del-yaag.crt \
