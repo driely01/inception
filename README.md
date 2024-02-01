@@ -678,7 +678,7 @@ For example, each process has a **PID,** a number that is its unique identifie
 
 **PID 1**, also known as **init**, is the common ancestor of all processes and is the foundation on which all of them run. Thus, you can imagine its importance.
 
-## Processes’ lifecycle
+## Processes’s lifecycle
 
 The parent process has many responsibilities relating to the lifecycle. If a process terminates, some of its data is kept until the parent collects it. If the parent does not collect it, it becomes a **zombie process**. If the parent terminates, its child processes become **orphaned** and have to be adopted by another process: they are often adopted by **init**.
 ---
