@@ -719,3 +719,5 @@ another example of a passphrase would by using random words altogether like “s
 * [HTTP](https://www.cloudflare.com/learning/ddos/glossary/hypertext-transfer-protocol-http/)
 * [HTTP (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
 * [HTTP (video)](https://www.youtube.com/watch?v=iYM2zFP3Zn0&ab_channel=TraversyMedia)
+* [RSA-4096 Ransomware](https://www.comparitech.com/net-admin/rsa-4096-ransomware/#:~:text=RSA%2D4096%20is%20a%20legitimate,well%20as%20honest%20business%20people.)
+* [RSA algorithm (video)](https://www.youtube.com/watch?v=4zahvcJ9glg&ab_channel=EddieWoo)

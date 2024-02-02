@@ -52,7 +52,7 @@ ps:
 	sudo docker ps
 
 clean: down
-	sudo docker rmi wordpress nginx mariadb website
+	sudo docker rmi wordpress nginx mariadb website adminer
 
 fclean: down clean-volumes
 	sudo docker system prune -a

@@ -73,8 +73,10 @@ services:
     build:
       context: ./requirements/adminer
       dockerfile: Dockerfile
-    ports:
-      - "8080:8080"
+    expose:
+      - 8080
+    volumes:
+      - hello:/var/www/html
     container_name: adminer
     image: adminer
     restart: unless-stopped
