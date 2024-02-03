@@ -55,7 +55,7 @@ services:
 
   website:
     build:
-      context: ./requirements/website
+      context: ./requirements/bonus/website
       dockerfile: Dockerfile
     expose:
       - 5000
@@ -71,7 +71,7 @@ services:
 
   adminer:
     build:
-      context: ./requirements/adminer
+      context: ./requirements/bonus/adminer
       dockerfile: Dockerfile
     expose:
       - 6000
@@ -88,21 +88,21 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /home/driss/data/mysql
+      device: ${HOME}/data/mysql
       o: bind
 
   wordpressdb:
     driver: local
     driver_opts:
       type: none
-      device: /home/driss/data/wordpress
+      device: ${HOME}/data/wordpress
       o: bind
 
   adminerdb:
     driver: local
     driver_opts:
       type: none
-      device: /home/driss/data/wordpress
+      device: ${HOME}/data/wordpress
       o: bind
 
 networks:

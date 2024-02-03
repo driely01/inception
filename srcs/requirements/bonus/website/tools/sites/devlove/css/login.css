@@ -1,0 +1,135 @@
+body{
+    background-color: #0D1017;
+    height: 100%;
+}
+
+.global-container
+{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #BDB99F
+}
+
+a
+{
+    color: #366AB4;
+}
+
+.logo
+{
+    width: 360px;
+    background: #0D1017 !important;
+    border-radius: 5px !important;
+    align-items: center;
+    border: none;
+}
+
+.logo img
+{
+    height: 90px;
+    width: 90px;
+    border-radius: 45px;
+    margin-top: 30px;
+}
+
+.card-title
+{
+    /* font-weight: 900; */
+    font-size: 25px;
+}
+
+.login-form
+{
+    width: 360px;
+    /* height: 450px; */
+    background: #161B21 !important;
+    border-radius: 5px !important;
+}
+
+form
+{
+    /* padding-top: 30px; */
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+input[type="email"],
+input[type="password"]
+{
+    background: #0D1017;
+    order: 2px solid #366AB4;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+input[type="email"]:focus,
+input[type="password"]:focus
+{
+    background: #0D1017;
+    order: 2px solid #366AB4;
+    outline: none;
+    border: none;
+    margin: 0;
+}
+
+.btn
+{
+	color: #BDB99F;
+	border: 2px solid #238637;
+    background-color: #238637 !important;
+	-webkit-transition:all .3s ease-in-out;
+	-moz-transition:all .3s ease-in-out;
+	-o-transition:all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+}
+
+.btn:hover
+{
+	background: #238637 !important;
+	color: #FFF;
+	border: 1px solid #238637;
+}
+
+.form-group a
+{
+    float: right;
+    font-size: 12px;
+}
+
+.create
+{
+    padding: 10px;
+    margin-top: 15px;
+    width: 360px;
+    background-color: #0D1017;
+    border: 1px solid #BDB99F;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.links
+{
+    margin-top: 30px;
+    font-size: 12px;
+    padding: 10px;
+    margin-top: 15px;
+    width: 360px;
+    background-color: #0D1017;
+    align-items: center;
+    border: none;
+}
+
+.privacy
+{
+    margin-left: 10px;
+}
+.contact-us
+{
+    text-decoration: none;
+    color: #BDB99F !important;
+}
+.last-links
+{
+    vertical-align:bottom
+}

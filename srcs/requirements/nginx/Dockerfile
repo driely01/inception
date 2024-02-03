@@ -18,7 +18,7 @@ RUN  openssl req -newkey rsa:4096 \
 
 # copy our nginx config file into nginx
 COPY tools/script.sh /
-COPY *.conf /etc/nginx/sites-enabled/
+COPY conf/*.conf /etc/nginx/sites-enabled/
 COPY tools/errors/custom_404.html /usr/share/nginx/html/
 COPY tools/errors/custom_403.html /usr/share/nginx/html/
 COPY tools/errors/custom_50x.html /usr/share/nginx/html/
