@@ -8,7 +8,7 @@ services:
     ports:
       - "443:443"
     volumes:
-      - hello:/var/www/html
+      - wordpressdb:/var/www/html
     container_name: nginx
     image: nginx
     env_file:
@@ -26,7 +26,7 @@ services:
     expose:
       - 9000
     volumes:
-      - hello:/var/www/html
+      - wordpressdb:/var/www/html
     container_name: wordpress
     image: wordpress
     env_file:
@@ -44,7 +44,7 @@ services:
     expose:
       - 3306
     volumes:
-      - mariadb_data:/var/lib/mysql
+      - mariadbdb:/var/lib/mysql
     container_name: mariadb
     image: mariadb
     env_file:
@@ -60,7 +60,7 @@ services:
     expose:
       - 5000
     volumes:
-      - hello:/var/www/html
+      - wordpressdb:/var/www/html
     container_name: website
     image: website
     env_file:
@@ -74,9 +74,9 @@ services:
       context: ./requirements/adminer
       dockerfile: Dockerfile
     expose:
-      - 8080
+      - 6000
     volumes:
-      - hello:/var/www/html
+      - adminerdb:/var/www/html
     container_name: adminer
     image: adminer
     restart: unless-stopped
@@ -84,14 +84,21 @@ services:
       - firstnet
 
 volumes:
-  mariadb_data:
+  mariadbdb:
     driver: local
     driver_opts:
       type: none
       device: /home/driss/data/mysql
       o: bind
 
-  hello:
+  wordpressdb:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/driss/data/wordpress
+      o: bind
+
+  adminerdb:
     driver: local
     driver_opts:
       type: none
