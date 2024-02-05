@@ -706,6 +706,7 @@ another example of a passphrase would by using random words altogether like “s
 ---
 
 # RESOURCES
+* [Docker my Miro Template](* [Docker](https://www.docker.com/))
 * [Docker](https://www.docker.com/)
 * [Docker Deep Dive (pdf)](https://m.vk.com/wall-54530371_376392?lang=en)
 * [NGINX Handbook](https://www.freecodecamp.org/news/the-nginx-handbook/#how-to-configure-ssl-and-http-2)
