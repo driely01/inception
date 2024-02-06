@@ -712,6 +712,7 @@ another example of a passphrase would by using random words altogether like “s
 * [Introduction to Web Servers (pdf)](http://gecnilokheri.ac.in/GPContent/Ifunit%204.pdf)
 * [NGINX Handbook](https://www.freecodecamp.org/news/the-nginx-handbook/#how-to-configure-ssl-and-http-2)
 * [WordPress (pdf)](https://staff.emu.edu.tr/mobinabeheshti/Documents/courses/WP-1-cms.pdf)
+* [WordPress core](https://solidwp.com/blog/wordpress-core/#:~:text=WordPress%20core%20is%20a%20way,and%20edit%20posts%20and%20pages)
 * [OpenSSL](https://www.ssldragon.com/blog/what-is-openssl/)
 * [Using OpenSSL to send Asynchronous Encrypted messages (video)](https://www.youtube.com/watch?v=Q764OumalJo&ab_channel=Dr.K)
 * [STL](https://www.cloudflare.com/learning/ssl/transport-layer-security-tls/)
