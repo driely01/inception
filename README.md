@@ -710,6 +710,7 @@ another example of a passphrase would by using random words altogether like “s
 * [Docker](https://www.docker.com/)
 * [Docker Deep Dive (pdf)](https://m.vk.com/wall-54530371_376392?lang=en)
 * [NGINX Handbook](https://www.freecodecamp.org/news/the-nginx-handbook/#how-to-configure-ssl-and-http-2)
+* [WordPress (pdf)](https://staff.emu.edu.tr/mobinabeheshti/Documents/courses/WP-1-cms.pdf)
 * [OpenSSL](https://www.ssldragon.com/blog/what-is-openssl/)
 * [Using OpenSSL to send Asynchronous Encrypted messages (video)](https://www.youtube.com/watch?v=Q764OumalJo&ab_channel=Dr.K)
 * [STL](https://www.cloudflare.com/learning/ssl/transport-layer-security-tls/)
