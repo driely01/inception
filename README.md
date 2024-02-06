@@ -709,7 +709,7 @@ another example of a passphrase would by using random words altogether like “s
 * [Docker my Miro Template](https://miro.com/miroverse/docker/?social=copy-link)
 * [Docker](https://www.docker.com/)
 * [Docker Deep Dive (pdf)](https://m.vk.com/wall-54530371_376392?lang=en)
-* [Introduction to Web Servers (pdf)]([https://m.vk.com/wall-54530371_376392?lang=en](http://gecnilokheri.ac.in/GPContent/Ifunit%204.pdf))
+* [Introduction to Web Servers (pdf)](http://gecnilokheri.ac.in/GPContent/Ifunit%204.pdf)
 * [NGINX Handbook](https://www.freecodecamp.org/news/the-nginx-handbook/#how-to-configure-ssl-and-http-2)
 * [WordPress (pdf)](https://staff.emu.edu.tr/mobinabeheshti/Documents/courses/WP-1-cms.pdf)
 * [OpenSSL](https://www.ssldragon.com/blog/what-is-openssl/)
