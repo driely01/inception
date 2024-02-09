@@ -48,6 +48,7 @@
 ### What is docker?
 
 docker is a platform for building, running and shipping applications in a consistent manner.
+![architector](https://github.com/driely01/inception/assets/41493879/9f60a069-7989-4df0-bcd6-9838d3635d35)
 
 ### virtual machines vs containers
 
@@ -234,7 +235,7 @@ The backend stores data in a persistent volume.
 
 Both services communicate with each other on an isolated back-tier network, while the frontend is also connected to a front-tier network and exposes port 443 for external usage.
 
-![compose-application.webp](https://prod-files-secure.s3.us-west-2.amazonaws.com/1704bb50-ea03-4078-8832-7b94b99a6c7b/53c75739-0097-4bc5-ab1a-521f30cd80da/compose-application.webp)
+![compose-application](https://github.com/driely01/inception/assets/41493879/7a212036-dd7c-4bf9-a7a4-02e2521b0a28)
 
 The example application is composed of the following parts:
 
@@ -309,13 +310,13 @@ in fact to explain NGINX’s request handling technique, we would like to quote 
 
 if that seems a bit complicated to understand, don’t worry. having a basic understanding of the inner working will suffice for now.
 
-![wQszK2rvq-1.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/1704bb50-ea03-4078-8832-7b94b99a6c7b/e8389a37-6705-473f-8094-cb76bac445f4/wQszK2rvq-1.png)
+![wQszK2rvq-1](https://github.com/driely01/inception/assets/41493879/7678eb11-de56-47ac-ae8f-e193802a48b7)
 
 NGINX is a faster in static content delivery while staying relatively lighter on resources because it doesn’t embed a dynamic programming language processor. when a request for a static content comes, NGINX simply responds with the file without running any additional processes.
 
 that does’t mean that NGINX can’t handle requests that require a dynamic programming language processor. in such cases. NGINX simply delegates the tasks to separate processes such as php-fpm, node.js or python. then, once that process finishes its work, NGINX reverse proxies the response back to the client.
 
-![_nT7rcdjG.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/1704bb50-ea03-4078-8832-7b94b99a6c7b/9b1f19e5-638d-4cce-8195-0ba6b5202a2d/_nT7rcdjG.png)
+![_nT7rcdjG](https://github.com/driely01/inception/assets/41493879/7e550931-fe7d-4d52-96ff-a116bb74fdcb)
 
 NGINX is also a lot easier to configure thanks to a configuration file syntax inspired from various scripting languages that results in compact, easily maintainable configuration files.
 
@@ -677,7 +678,7 @@ For example, each process has a **PID,** a number that is its unique identifie
 
 **Unix processes** are ordered in a tree. Each process can have child processes, and all have a parent process. All except the very first process, the **PID 1**.
 
-![tree_unix_processes.webp](https://prod-files-secure.s3.us-west-2.amazonaws.com/1704bb50-ea03-4078-8832-7b94b99a6c7b/0aad6607-cdf0-4d76-89c2-acd12b0ccf5d/tree_unix_processes.webp)
+![tree_unix_processes](https://github.com/driely01/inception/assets/41493879/868581c3-1975-43c5-8609-7d37314c8e3b)
 
 **PID 1**, also known as **init**, is the common ancestor of all processes and is the foundation on which all of them run. Thus, you can imagine its importance.
 
