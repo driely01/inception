@@ -9,6 +9,11 @@
     * development workflow
     * image
     * docker in action
+* [DOCKER-COMPOSE](#docker-compose)
+    * why use compose?
+    * common use cases of docker compose
+    * how compose works
+    * Illustrative example
 * [NGINX](#nginx)
     * introduction to NGINX
     * how to install NGINX
