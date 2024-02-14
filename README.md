@@ -709,12 +709,8 @@ passphrase use a phrase that usually means something to the one who created it. 
 
 another example of a passphrase would by using random words altogether like “soup shelter summer indeed rod 9” which also uses common dictionary words. if this were used as a password, it places the account at risk of becoming compromised using a dictionary attack.
 
-***see my miro docker template***
+***see my miro docker template ``[here](https://miro.com/app/board/uXjVNxCm2rg=/?share_link_id=491490227639)``***
 <img width="1080" alt="Screen Shot 2024-02-09 at 10 44 36 PM" src="https://github.com/driely01/inception/assets/41493879/ece1af71-00fb-4f1b-8ca0-af51e07fc7de">
-use the following link or the think in ther resources section
-```
-https://miro.com/app/board/uXjVNxCm2rg=/?share_link_id=491490227639
-```
 
 ---
 
